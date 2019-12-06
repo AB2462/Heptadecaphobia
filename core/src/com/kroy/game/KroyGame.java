@@ -7,6 +7,7 @@ import com.kroy.screens.GameScreen;
 
 public class KroyGame extends Game {
 	
+	int test = 3;
 	/*/int state;
 	Screen screen = new Screen();
 	EventListener eventListener = new EventListener();
@@ -39,6 +40,9 @@ public class KroyGame extends Game {
 		}
 		/*/
 		return false;
+	}
+	public int getTest() {
+		return test;
 	}
 	/*/
 	public static FireTruck generateFireTruck() {
