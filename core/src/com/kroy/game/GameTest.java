@@ -6,6 +6,8 @@ import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 import java.util.ArrayList;
 import com.badlogic.gdx.Game;
+import com.kroy.gameobjects.Firetruck;
+import com.kroy.gameobjects.Fortress;
 
 import org.junit.Test;
 
