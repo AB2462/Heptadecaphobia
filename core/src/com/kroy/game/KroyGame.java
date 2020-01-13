@@ -1,5 +1,7 @@
 package com.kroy.game;
 
+import java.util.ArrayList;
+
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.kroy.helpers.AssetLoader;
@@ -15,8 +17,9 @@ public class KroyGame extends Game {
 	FireStation fireStation = new FireStation(0, 0, 0);
 	ArrayList<Object> patrolList = new ArrayList<Object>();
 	ArrayList<Object> truckList = new ArrayList<Object>();
-	ArrayList<Object> fortressList = new ArrayList<Object>();
+	
 	/*/
+	ArrayList<Object> fortressList = new ArrayList<Object>();
 	@Override
 	public void create() {
 		Gdx.app.log("Game", "created");
@@ -30,16 +33,15 @@ public class KroyGame extends Game {
 		super.dispose();
 	}
 	
-	public static boolean isWon() {
-		/*/
+	public static boolean isWon(ArrayList<Object> fortressList) {
+		
 		if (fortressList.isEmpty()) {
 			return true;
 		}
 		else {
 			return false;
 		}
-		/*/
-		return false;
+		
 	}
 	public int getTest() {
 		return test;
