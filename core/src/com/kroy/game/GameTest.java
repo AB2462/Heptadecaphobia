@@ -78,4 +78,20 @@ public class GameTest {
 		KroyGame game = new KroyGame();
 		assertEquals(4,4);
 	}
+	@Test
+	public void testRefills() {
+		Firetruck truck = new Firetruck(1,1,1,1);
+		assertEquals(truck.getHpCurrent(),10);
+		truck.fireWeapon();
+		assertEquals(truck.getHpCurrent(),9);
+		
+	}
+	@Test
+	public void testRepairs() {
+		Firetruck truck = new Firetruck(1,1,1,1);
+		truck.damage();
+		assertEquals(truck.getHpCurrent(),9);
+		truck.repair();
+		assertEquals(truck.getHpCurrent(),10);
+	}
 }

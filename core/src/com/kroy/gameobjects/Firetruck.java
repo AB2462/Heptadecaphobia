@@ -41,6 +41,9 @@ public class Firetruck extends GameObject{
     public void repair() {
     	this.hpCurrent = this.hpMax;
     }
+    public void fireWeapon() {
+    	this.firehose.fire();
+    }
     public void move(float delta) {
     	if (this.startMove) {
     		if (this.position.x > this.goalX) {

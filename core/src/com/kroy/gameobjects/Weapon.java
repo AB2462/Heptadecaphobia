@@ -19,7 +19,9 @@ public class Weapon {
 		this.numProjectiles = numProjectiles;
 		//this.texture = texture;
 	}
-	
+	public void fire() {
+		this.numProjectiles -=1;
+	}
 	public int getDamage() {
 		return this.damage;
 	}
