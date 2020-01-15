@@ -31,36 +31,70 @@ public class Firetruck extends GameObject{
     }
 
     public void update(float delta) {
-    	move();
+
     	if (isHit) {
     		damage();
     	}
+
+    	move(delta);
+
     }
     
-    public void move() {
+    public void move(float delta) {
     	if (this.startMove) {
-	    	float xdif = this.goalX - this.position.x;
-	    	float ydif = this.goalY - this.position.y;
-	    	float dx = 0;
-	    	float dy = 0;
-	    	
-	    	if (this.position.x != this.goalX) {
-	    		dx = xdif / this.velocity.x;
-	    	} else {
-	    		dx = 0;
-	    	}
-	    	if (this.position.y != this.goalY) {
-	    		dy = ydif / this.velocity.y;
-	    	} else {
-	    		dy = 0;
-	    	}
-	    	
-	    	if (this.position.x == this.goalX && this.position.y == this.goalY) {
-	    		this.startMove = false;
-	    	}
-	    	
-	    	this.position.x += dx;
-	    	this.position.y += dy;
+    		if (this.position.x > this.goalX) {
+    		    this.acceleration.x = -10;
+    		} else {
+    		    this.acceleration.x = 10;
+    		}
+    		if (this.position.y > this.goalY) {
+    		    this.acceleration.y = -10;
+    		} else {
+    			this.acceleration.y = 10;
+    		}
+
+    		double moveX = this.goalX - this.position.x; // Calculate how far truck has to go in x
+    		double moveY = this.goalY - this.position.y; // Calculate how far truck has to go in y  
+    		//double distance = Math.sqrt(moveX * moveX + moveY * moveY); // Work out overall distance to goal position
+
+    		double travelX = this.position.x + this.velocity.x; // Work out how far it will go in x
+    		double travelY = this.position.y + this.velocity.y; // Work out how far it will go in y
+    		//double distanceTravel = Math.sqrt(travelX * travelX + travelY * travelY); // Work out how far it will go next update overall
+    		       
+    		if (travelX > moveX) {
+    			this.position.x = this.goalX;
+		        this.velocity.x = 0;
+		        this.acceleration.x = 0;
+		        Gdx.app.log("Done Move X", "Complete XXXXXXXXXXXXXXXXXXXXXXXXXX");
+    		}
+    		if (travelY > moveY) {
+    			this.position.y = this.goalY;
+		        this.velocity.y = 0;
+		        this.acceleration.y = 0;
+		        Gdx.app.log("Done Move Y", "Complete yyyyyyyyyyyyyyyyyyyyyyyyyy");
+    		}
+    		
+    		Gdx.app.log("move",  "--------------------------------------------");
+    	    Gdx.app.log("initial", (this.position.toString() + this.goalX + " " + this.goalY + this.velocity.toString() + this.acceleration.toString()) );
+    	    if (this.position.x != this.goalX) {
+    	    	this.velocity.x += this.acceleration.x;
+    	    }
+    	    if (this.position.y != this.goalY) {
+    	    	this.velocity.y += this.acceleration.y;
+    	    }
+    	       
+	        if (this.velocity.y > 50) { // Make sure velocity isn't too high in y
+	        	this.velocity.y = 50;
+            } else if (this.velocity.y < -50) {
+	            this.velocity.y = -50;
+            }
+	        if (this.velocity.x > 50) { // Make sure velocity isn't too high in x
+	        	this.velocity.x = 50;
+            } else if (this.velocity.x < -50) {
+	            this.velocity.x = -50;
+            }
+	       
+	        this.position.add(this.velocity.cpy().scl(delta)); // Update the position, scaled by fps
     	}
     }
 
@@ -105,4 +139,5 @@ public class Firetruck extends GameObject{
     	this.acceleration.x = 0;
     	this.notDestroyed = false;
     }
+
 }

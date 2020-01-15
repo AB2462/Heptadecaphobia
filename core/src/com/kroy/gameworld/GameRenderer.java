@@ -81,10 +81,7 @@ public class GameRenderer {
         batcher.begin();
         batcher.enableBlending();
         
-        batcher.draw((TextureRegion) truckAnimation.getKeyFrame(runTime),  truck.getX(),
-        		truck.getY(), truck.getWidth() / 2.0f,
-        		truck.getHeight() / 2.0f, truck.getWidth(), truck.getHeight(),
-        		1, 1, truck.getRotation());
+        
         
         if (myWorld.isReady()) {
             AssetLoader.shadow.draw(batcher, "Click to Start", 50, 100);
@@ -92,6 +89,11 @@ public class GameRenderer {
         } else if (myWorld.isGameOver()) {
                 AssetLoader.shadow.draw(batcher, "Game Over", 25, 56);
                 AssetLoader.font.draw(batcher, "Game Over", 24, 55);
+        } else if (myWorld.isRunning()) {
+        	batcher.draw((TextureRegion) truckAnimation.getKeyFrame(runTime),  truck.getX(),
+            		truck.getY(), truck.getWidth() / 2.0f,
+            		truck.getHeight() / 2.0f, truck.getWidth(), truck.getHeight(),
+            		1, 1, truck.getRotation());
         }
         
         // End SpriteBatch
