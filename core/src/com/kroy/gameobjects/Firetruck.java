@@ -3,7 +3,7 @@ package com.kroy.gameobjects;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.math.Vector2;
 
-public class Firetruck {
+public class Firetruck extends GameObject{
 
     private Vector2 position;
     private Vector2 velocity;
@@ -14,6 +14,7 @@ public class Firetruck {
     private int height;
     private int goalX;
     private int goalY;
+    private boolean isHit = false;
     
     private boolean startMove;
     private boolean notDestroyed;
@@ -26,10 +27,14 @@ public class Firetruck {
         this.acceleration = new Vector2(0, 0);
         this.startMove = false;
         this.notDestroyed = false;
+        
     }
 
     public void update(float delta) {
     	move();
+    	if (isHit) {
+    		damage();
+    	}
     }
     
     public void move() {
@@ -84,6 +89,7 @@ public class Firetruck {
     public float getRotation() {
         return this.rotation;
     }
+    
     
     public boolean notDestroyed() {
     	return this.notDestroyed;

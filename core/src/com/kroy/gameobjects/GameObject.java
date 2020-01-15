@@ -7,9 +7,9 @@ public abstract class GameObject {
 	
 	protected ArrayList<Integer> position;
 	protected int hpMax;
-	protected double hpCurrent;
+	protected double hpCurrent = 10;
 	protected ArrayList<Image> texture;
-
+	protected int damage =1;
 	public abstract void Draw();
 	public abstract void Update();
 
@@ -25,7 +25,7 @@ public abstract class GameObject {
 		return this.hpCurrent;
 	};
 
-	public boolean damage(double damage) {
+	public boolean damage() {
 		if (damage > this.hpCurrent) {
 			this.hpCurrent = 0;
 			return true;

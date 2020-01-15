@@ -42,4 +42,10 @@ public class GameTest {
 		assertTrue(game.isWon(emptyList));
 		assertFalse(game.isWon(nonemptyList));
 	}
+	@Test
+	public void testEngineHealth() {
+		Firetruck truck = new Firetruck(1,1,1,1);
+		truck.damage();
+		
+	}
 }
