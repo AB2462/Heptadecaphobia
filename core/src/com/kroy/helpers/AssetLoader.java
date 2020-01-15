@@ -4,6 +4,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.Texture.TextureFilter;
 import com.badlogic.gdx.graphics.g2d.Animation;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 
 public class AssetLoader {
@@ -14,6 +15,7 @@ public class AssetLoader {
     public static Animation truckRightAnimation;
     public static Animation truckLeftAnimation;
     public static TextureRegion truck, truckLeft, truckRight, truck1, truckLeft1, truckRight1;
+    public static BitmapFont font, shadow;
 
     public static void load() {
 
@@ -47,12 +49,18 @@ public class AssetLoader {
         truckAnimation.setPlayMode(Animation.PlayMode.LOOP_PINGPONG);
         truckLeftAnimation.setPlayMode(Animation.PlayMode.LOOP_PINGPONG);
         truckRightAnimation.setPlayMode(Animation.PlayMode.LOOP_PINGPONG);
+        
+        font = new BitmapFont(Gdx.files.internal("text.fnt"));
+        font.getData().setScale(.75f, -.75f);
+        shadow = new BitmapFont(Gdx.files.internal("shadow.fnt"));
+        shadow.getData().setScale(.75f, -.75f);
 
     }
 
     public static void dispose() {
-        // We must dispose of the texture when we are finished.
         texture.dispose();
+        font.dispose();
+        shadow.dispose();
     }
 
 }

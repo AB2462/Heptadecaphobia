@@ -1,14 +1,20 @@
 package com.kroy.helpers;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputProcessor;
 import com.kroy.gameobjects.Firetruck;
+import com.kroy.gameworld.GameWorld;
 
 public class InputHandler implements InputProcessor {
 	
 	private Firetruck myTruck;
+	private GameWorld myWorld;
+	private int mouseX;
+	private int mouseY;
 	
-	public InputHandler(Firetruck truck) {
-		   myTruck = truck;
+	public InputHandler(GameWorld myWorld) {
+		this.myWorld = myWorld;
+		myTruck = myWorld.getFiretruck();
 	}
 	
 	@Override
@@ -31,7 +37,18 @@ public class InputHandler implements InputProcessor {
 
 	@Override
 	public boolean touchDown(int screenX, int screenY, int pointer, int button) {
-		myTruck.onClick();
+		if (myWorld.isReady()) {
+			myWorld.start();
+		}
+		
+		mouseX = Gdx.input.getX();
+		mouseY = Gdx.input.getY();
+		myTruck.onClick(mouseX, mouseY);
+		
+		if (myWorld.isGameOver()) {
+			myWorld.restart();
+		}
+		
 		return true;
 	}
 
