@@ -47,6 +47,10 @@ public class GameWorld {
     	return currentState == GameState.READY;
     }
     
+    public boolean isRunning() {
+    	return currentState == GameState.RUNNING;
+    }
+    
     public void start() {
         currentState = GameState.RUNNING;
     }

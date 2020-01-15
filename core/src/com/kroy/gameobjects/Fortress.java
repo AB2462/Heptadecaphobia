@@ -25,14 +25,4 @@ public class Fortress extends GameObject{
 	private void levelUp() {
 		
 	};
-	
-	@Override
-	public void Draw() {
-		
-	};
-
-	@Override
-	public void Update() {
-		
-	};
 }

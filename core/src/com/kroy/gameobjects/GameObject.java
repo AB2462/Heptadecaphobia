@@ -10,9 +10,6 @@ public abstract class GameObject {
 	protected double hpCurrent;
 	protected ArrayList<Image> texture;
 
-	public abstract void Draw();
-	public abstract void Update();
-
 	public ArrayList<Integer> getPosition(){
 		return this.position;
 	};

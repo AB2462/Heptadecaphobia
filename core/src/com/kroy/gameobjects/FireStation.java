@@ -1,8 +1,10 @@
 package com.kroy.gameobjects;
 
+import com.kroy.gameobjects.Firetruck;
+
 public class FireStation extends GameObject {
 	
-	FireTruck residentTruck;
+	Firetruck residentTruck;
 	int range;
 	double refillAmount;
 	double repairAmount;
@@ -11,18 +13,6 @@ public class FireStation extends GameObject {
 		this.range = range;
 		this.refillAmount = refillAmount;
 		this.repairAmount = repairAmount;
-	}
-	
-	@Override
-	public void Draw() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void Update() {
-		// TODO Auto-generated method stub
-		
 	}
 
 }
