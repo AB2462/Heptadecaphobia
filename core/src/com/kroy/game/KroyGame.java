@@ -4,6 +4,8 @@ import java.util.ArrayList;
 
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
+import com.kroy.gameobjects.GameObject;
+import com.kroy.gameobjects.Projectile;
 import com.kroy.helpers.AssetLoader;
 import com.kroy.screens.GameScreen;
 
@@ -45,6 +47,21 @@ public class KroyGame extends Game {
 	}
 	public int getTest() {
 		return test;
+	}
+	public static boolean isLost(ArrayList<Object> firetruckList) {
+		
+		if (firetruckList.isEmpty()) {
+			return true;
+		}
+		else {
+			return false;
+		}
+		
+	}
+	public void objectHit(GameObject object, Projectile projectile) {
+		if (projectile.getPosition() == object.getPosition()) {
+			object.damage();
+		}
 	}
 	/*/
 	public static FireTruck generateFireTruck() {

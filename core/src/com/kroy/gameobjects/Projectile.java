@@ -1,14 +1,15 @@
 package com.kroy.gameobjects;
+import java.util.ArrayList;
 
 public class Projectile {
 	
 	int damage, velocity;
 	boolean animate;
 	GameObject target;
-	int[] position;
+	ArrayList<Integer> position;
 	//image texture;
 	
-	public Projectile(int damage, int velocity, GameObject target, int[] position) {
+	public Projectile(int damage, int velocity, GameObject target, ArrayList<Integer> position) {
 		this.damage = damage;
 		this.velocity = velocity;
 		this.animate = false;
@@ -19,11 +20,10 @@ public class Projectile {
 	public void draw() {
 		
 	}
-	public void setPosition(int x, int y) {
-		this.position[0] = x;
-		this.position[1] = y;
-	}
 	public void update() {
 		
+	}
+	public ArrayList<Integer> getPosition() {
+		return this.position;
 	}
 }

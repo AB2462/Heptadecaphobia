@@ -11,8 +11,6 @@ public abstract class GameObject {
 	protected ArrayList<Image> texture;
 
 	protected int damage =1;
-	public abstract void Draw();
-	public abstract void Update();
 
 
 	public ArrayList<Integer> getPosition(){

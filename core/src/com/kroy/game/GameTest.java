@@ -21,8 +21,9 @@ public class GameTest {
 	public void testTest() {
 		KroyGame game = new KroyGame();
 		assertEquals(game.getTest(),3);
-		
-	}
+	}	
+	
+	
 	@Test
 	public void testIsWon() {
 		KroyGame game = new KroyGame();
@@ -40,8 +41,8 @@ public class GameTest {
 		ArrayList<Object> nonemptyList = new ArrayList<Object>();
 		Firetruck truck = new Firetruck(1,1,1,1);
 		nonemptyList.add(truck);
-		assertTrue(game.isWon(emptyList));
-		assertFalse(game.isWon(nonemptyList));
+		assertTrue(game.isLost(emptyList));
+		assertFalse(game.isLost(nonemptyList));
 	}
 	@Test
 	public void testEngineHealth() {
@@ -66,5 +67,15 @@ public class GameTest {
 		fort.damage();
 		assertEquals(fort.getHpCurrent(),9);
 		
+	}
+	@Test
+	public void testEngineStartNum() {
+		KroyGame game = new KroyGame();
+		assertEquals(2,2);
+	}
+	@Test
+	public void testFortressStartNum() {
+		KroyGame game = new KroyGame();
+		assertEquals(4,4);
 	}
 }

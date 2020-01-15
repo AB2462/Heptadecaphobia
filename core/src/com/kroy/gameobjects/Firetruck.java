@@ -32,10 +32,6 @@ public class Firetruck extends GameObject{
 
     public void update(float delta) {
 
-    	if (isHit) {
-    		damage();
-    	}
-
     	move(delta);
 
     }
