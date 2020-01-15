@@ -14,7 +14,6 @@ public class KroyGame extends Game {
 	Screen screen = new Screen();
 	EventListener eventListener = new EventListener();
 	Map map = new Map();
-	//test
 	FireStation fireStation = new FireStation(0, 0, 0);
 	ArrayList<Object> patrolList = new ArrayList<Object>();
 	ArrayList<Object> truckList = new ArrayList<Object>();
