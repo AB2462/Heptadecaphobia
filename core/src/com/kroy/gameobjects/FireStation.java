@@ -14,5 +14,4 @@ public class FireStation extends GameObject {
 		this.refillAmount = refillAmount;
 		this.repairAmount = repairAmount;
 	}
-
 }

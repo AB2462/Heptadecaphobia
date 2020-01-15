@@ -1,20 +1,22 @@
 package com.kroy.gameobjects;
 
+import java.util.ArrayList;
+
 public class Weapon {
 
 	private int damage, firerate, range;
 	private boolean animate;
-	private GameObject target;
-	private int[] position = new int[2];
+	private ArrayList<Integer> position = new ArrayList<Integer>();
+	private int numProjectiles;
 	//private image texture;//change type
 	
-	public Weapon( int firerate,int range, GameObject target, int[] position) {
+	public Weapon( int firerate,int range, int numProjectiles) {
 		this.damage = 1;
 		this.firerate = firerate;
 		this.range = range;
 		this.animate = false;
-		this.target = target;
-		this.position = position;
+
+		this.numProjectiles = numProjectiles;
 		//this.texture = texture;
 	}
 	
@@ -27,17 +29,15 @@ public class Weapon {
 	public int getRange() {
 		return this.range;
 	}
-	public int[] getPosition() {
-		return this.position;
-	}
-	public void setPosition(int x, int y) {
-		this.position[0] = x;
-		this.position[1] = y;
-	}
+
+
 	public void draw() {
 		
 	}
 	public void update() {
 		
+	}
+	public void setNumProjectiles(int numProjectiles) {
+		this.numProjectiles = numProjectiles;
 	}
 }

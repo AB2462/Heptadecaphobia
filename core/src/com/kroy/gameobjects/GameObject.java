@@ -6,8 +6,8 @@ import java.lang.Math;
 public abstract class GameObject {
 	
 	protected ArrayList<Integer> position;
-	protected int hpMax;
-	protected int hpCurrent = 10;
+	protected int hpMax =10;
+	protected int hpCurrent = hpMax;
 	protected ArrayList<Image> texture;
 
 	protected int damage =1;
