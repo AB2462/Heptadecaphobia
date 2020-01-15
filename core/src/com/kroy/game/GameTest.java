@@ -6,6 +6,7 @@ import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 import java.util.ArrayList;
 import com.badlogic.gdx.Game;
+import com.kroy.gameobjects.FireStation;
 import com.kroy.gameobjects.Firetruck;
 import com.kroy.gameobjects.Fortress;
 
@@ -45,7 +46,25 @@ public class GameTest {
 	@Test
 	public void testEngineHealth() {
 		Firetruck truck = new Firetruck(1,1,1,1);
+		assertEquals(truck.getHpCurrent(),10);
 		truck.damage();
+		assertEquals(truck.getHpCurrent(),9);
+		
+	}
+	@Test
+	public void testStationHealth() {
+		FireStation station = new FireStation(1,1,1);
+		assertEquals(station.getHpCurrent(),10);
+		station.damage();
+		assertEquals(station.getHpCurrent(),9);
+		
+	}
+	@Test
+	public void testFortressHealth() {
+		Fortress fort = new Fortress(1);
+		assertEquals(fort.getHpCurrent(),10);
+		fort.damage();
+		assertEquals(fort.getHpCurrent(),9);
 		
 	}
 }

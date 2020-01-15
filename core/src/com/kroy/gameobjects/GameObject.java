@@ -7,7 +7,7 @@ public abstract class GameObject {
 	
 	protected ArrayList<Integer> position;
 	protected int hpMax;
-	protected double hpCurrent = 10;
+	protected int hpCurrent = 10;
 	protected ArrayList<Image> texture;
 	protected int damage =1;
 	public abstract void Draw();
@@ -21,7 +21,7 @@ public abstract class GameObject {
 		return this.hpMax;
 	};
 
-	public double getHpCurrent() {
+	public int getHpCurrent() {
 		return this.hpCurrent;
 	};
 
