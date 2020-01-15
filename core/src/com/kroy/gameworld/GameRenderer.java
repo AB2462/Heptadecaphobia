@@ -23,8 +23,8 @@ public class GameRenderer {
 	private int gameHeight;
 	
 	private Firetruck truck;
-    private Animation truckAnimation, truckLeftAnimation, truckRightAnimation;
-    private TextureRegion truckStraight, truckLeft, truckRight, truckStraight1, truckLeft1, truckRight1;
+    private Animation truckAnimation;
+    private TextureRegion truckStraight, truckStraight1;
 	
 	public GameRenderer(GameWorld world, int gameHeight, int midPointY) {
         myWorld = world;
@@ -51,14 +51,8 @@ public class GameRenderer {
 	
 	private void initAssets() {
         truckAnimation = AssetLoader.truckAnimation;
-        truckLeftAnimation = AssetLoader.truckLeftAnimation;
-        truckRightAnimation = AssetLoader.truckRightAnimation;
         truckStraight = AssetLoader.truck;
-        truckLeft = AssetLoader.truckLeft;
-        truckRight = AssetLoader.truckRight;
         truckStraight1 = AssetLoader.truck1;
-        truckLeft1 = AssetLoader.truckLeft1;
-        truckRight1 = AssetLoader.truckRight1;
     }
 	
 	public void render(float runTime) {
@@ -80,8 +74,6 @@ public class GameRenderer {
         // Begin SpriteBatch
         batcher.begin();
         batcher.enableBlending();
-        
-        
         
         if (myWorld.isReady()) {
             AssetLoader.shadow.draw(batcher, "Click to Start", 50, 100);

@@ -6,11 +6,11 @@ import java.lang.Math;
 public abstract class GameObject {
 	
 	protected ArrayList<Integer> position;
-	protected int hpMax =10;
+	protected int hpMax = 10;
 	protected int hpCurrent = hpMax;
 	protected ArrayList<Image> texture;
 
-	protected int damage =1;
+	protected int damage = 1;
 
 
 	public ArrayList<Integer> getPosition(){

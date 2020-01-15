@@ -31,7 +31,15 @@ public class InputHandler implements InputProcessor {
 
 	@Override
 	public boolean keyTyped(char character) {
-		// TODO Auto-generated method stub
+		if (character == 'w') {
+			myTruck.moveY(true,  true);
+		} else if (character == 's') {
+			myTruck.moveY(true,  false);
+		} else if (character == 'd') {
+			myTruck.moveX(true,  true);
+		} else if (character == 'a') {
+			myTruck.moveX(true,  false);
+		}
 		return false;
 	}
 
@@ -39,12 +47,12 @@ public class InputHandler implements InputProcessor {
 	public boolean touchDown(int screenX, int screenY, int pointer, int button) {
 		if (myWorld.isReady()) {
 			myWorld.start();
+		} else if (myWorld.isRunning()) {
+			mouseX = Gdx.input.getX();
+			mouseY = Gdx.input.getY();
+			myTruck.onClick(mouseX, mouseY);
 		}
-		
-		mouseX = Gdx.input.getX();
-		mouseY = Gdx.input.getY();
-		myTruck.onClick(mouseX, mouseY);
-		
+
 		if (myWorld.isGameOver()) {
 			myWorld.restart();
 		}
