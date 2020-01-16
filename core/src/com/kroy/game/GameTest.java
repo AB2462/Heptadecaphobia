@@ -50,7 +50,6 @@ public class GameTest {
 		assertEquals(truck.getHpCurrent(),10);
 		truck.damage();
 		assertEquals(truck.getHpCurrent(),9);
-		
 	}
 	@Test
 	public void testStationHealth() {
@@ -93,5 +92,19 @@ public class GameTest {
 		assertEquals(truck.getHpCurrent(),9);
 		truck.repair();
 		assertEquals(truck.getHpCurrent(),10);
+	}
+	@Test
+	public void testFiretruckDestroyed() {
+		Firetruck truck = new Firetruck(1,1,1,1);
+		assertEquals(truck.getHpCurrent(),10);
+		truck.damage();
+		assertEquals(truck.getHpCurrent(),9);
+	}
+	@Test
+	public void testFortressDestroyed() {
+		Fortress fort = new Fortress(1);
+		assertEquals(fort.getHpCurrent(),10);
+		fort.damage();
+		assertEquals(fort.getHpCurrent(),9);
 	}
 }
